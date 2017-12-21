@@ -96,64 +96,103 @@ a:hover
     justify-content: center
     align-items: center
 
-.other-links
-  text-align: center
+.nav-wrapper
   display: table-row
-  &.nopadding
-    display: block
-  margin: auto
-  .link
-    display: inline-block
-    min-width: 80px
+.default-nav
+  padding: 20px 15px
+  display: flex
+  justify-content: space-around
+  align-items: center
+  flex-flow: wrap
+  transition: 500ms
+  .main
+    height: auto
+    min-height: auto
+    width: 100%
+    display: flex
+    justify-content: space-around
+    align-items: center
     text-align: center
-    margin: auto 5px
-    padding: 10px
-    border-bottom: 3px solid rgba(0,0,0,0)
-    &:hover, &.active
+    .title
+      font-weight: bold
+      display: inline-block
+      font-size: 1.5rem
+    .sub-title
+      font-weight: 200
+  .links
+    transition: 400ms
+    .link-list
+      transition: opacity 500ms
+      display: none
+      flex-direction: column
+      margin: auto .8rem
+      .link
+        font-weight: 300
+        font-size: 1.2rem
+        text-align: center
+        margin: 5px auto
+        transition: color 400ms
+        padding: 5px 15px
+        border-bottom: 3px solid rgba(0,0,0,0)
+        &:hover,  &.active
+          color: $hover-color
+          border-bottom: 3px solid $hover-color
+          cursor: pointer
+    &:hover
+      .active:not(:hover)
+        color: white
+        border-bottom: 3px solid rgba(0,0,0,0)
+    .active
       color: $hover-color
-      border-bottom: 3px solid $hover-color
-      cursor: pointer
-  &:hover
-    .active:not(:hover)
-      color: white
-      border-bottom: 3px solid rgba(0,0,0,0)
-//
-// .hamburger-menu
-//   margin: auto 10px auto auto
-//   height: 32px
-//   width: 32px
-//   cursor: pointer
-//   position: relative
-//   padding-top: 10px
-//   &.nopadding
-//     padding-top: 0
-//   .line
-//     position: absolute
-//     width: 100%
-//     height: 5px
-//     background-color: white
-//     border-radius: 10px
-//     transition: 300ms
-//   .bottom
-//     margin-top: 22px
-//   .mid
-//     margin-top: 13px
-//   .top
-//     margin-top: 4px
-//   &.active
-//     .top, .bottom
-//       margin-top: 50%
-//     .top
-//       transform: rotate(-45deg)
-//     .bottom
-//       transform: rotate(45deg)
-//     .mid
-//       opacity: 0
-//
-// .other-links
-//   min-height: 0
-// +medium-devices
-//   .other-links
-//     min-height: 300px
-//   .hamburger-menu
-//     display: none
+  .hamburger-menu
+    height: 32px
+    width: 32px
+    cursor: pointer
+    position: relative
+    .line
+      position: absolute
+      width: 100%
+      height: 5px
+      background-color: white
+      border-radius: 10px
+      transition: 300ms
+    .bottom
+      margin-top: 22px
+    .mid
+      margin-top: 13px
+    .top
+      margin-top: 4px
+  &.active
+    align-items: inherit
+    width: 100vw
+    .hamburger-menu
+      .line
+        background-color: $hover-color
+      .top, .bottom
+        margin-top: 50%
+      .top
+        transform: rotate(-45deg)
+      .bottom
+        transform: rotate(45deg)
+      .mid
+        opacity: 0
+    .link-list
+      display: flex
+      opacity: 1
+    .links
+      margin: 10px
+      height: 100%
+  +medium-devices
+    .main
+      width: auto
+    .hamburger-menu
+      display: none
+    .links
+      height: auto
+      display: inline-block
+      width: auto
+      margin: inherit
+      .link-list
+        display: inherit
+        .link
+          margin: 0 10px

@@ -1,0 +1,27 @@
+
+<div class='nav-wrapper'>
+<nav class="default-nav">
+  <div class='main'>
+    <div class='heading'>
+      <div class='title'>A Dream Deferred</div>
+      <a href='https://goo.gl/d2FAWW'>
+        <div class='sub-title'>what happens to a dream defered?</div>
+      </a>
+    </div>
+    <div class='hamburger-menu' onclick='navbarShow()'>
+      <div class='line top'></div>
+      <div class='line mid'></div>
+      <div class='line bottom'></div>
+    </div>
+  </div>
+  <div class='links'>
+    <div class='link-list'>
+      <a class='link {% if include.active == "home" %}active{% endif %}' href='/'>Home</a>
+      <a class='link {% if include.active == "list" %}active{% endif %}' href='/list'>List</a>
+      <a class='link {% if include.active == "submit" %}active{% endif %}' href='/submit'>Submit</a>
+      <a class='link {% if include.active == "about" %}active{% endif %}' href='/about'>About</a>
+    </div>
+  </div>
+</nav>
+</div>
+<script src='/resources/js/default-navbar.js'></script>
