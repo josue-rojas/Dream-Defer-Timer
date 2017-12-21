@@ -34,7 +34,7 @@ document.addEventListener "DOMContentLoaded", ->
     date = convertepoch(data[id].dateend)
     # hexcolor = data[id].hexcolor
     instaUser = data[id].insta
-    $('.title').text(data[id].fullname + "'s Expiration")
+    $('.timer .title').text(data[id].fullname + "'s Expiration")
     if instaUser
       instagram = '<a class="insta-large" href="https://www.instagram.com/'  + instaUser + '"></a>'
       $('.instagram').html(instagram)
