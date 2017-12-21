@@ -1,0 +1,14 @@
+name: Dream-Deferred
+markdown: kramdown
+plugins:
+  - jekyll-coffeescript
+sass:
+  style: compressed
+exclude:
+  - CNAME
+  - README.md
+  - getData.py
+compress_html:
+  clippings: all
+  comments:  ["<!-- ", " -->"]
+  endings:   all

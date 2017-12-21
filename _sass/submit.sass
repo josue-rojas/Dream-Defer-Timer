@@ -1,0 +1,56 @@
+.main
+  padding-top: 10px
+  min-height: 100vh
+  display: table
+.form-box
+  width: 100vw
+  height: 100%
+  display: flex
+  justify-content: center
+  align-items: center
+  .form-wrapper
+    padding: 25px
+    background-color: rgba(0,0,0,.4)
+    border-radius: 5px
+    max-width: 95%
+    text-align: center
+    .form
+      padding-left: 7px
+      padding-right: 7px
+      margin: 10px auto
+      display: flex
+      flex-direction: column
+      input
+        outline: none
+        min-height: 30px
+        margin-top: 0
+        border: 1px solid #DDDDDD
+        &:focus
+          border: 1px solid $hover-color
+          box-shadow: 0 0 2px $hover-color
+        &.invalid
+          border: 1px solid #FF5454
+          box-shadow: 0 0 2px #FF5454
+      .button
+        margin: auto
+        margin-top: 20px
+        min-height: 30px
+        display: table
+        padding: 10px
+        background-color: rgba(5, 251, 255, 0.69)
+        cursor: pointer
+        transition: opacity 300ms
+        &:hover
+          opacity: .8
+    .label
+      text-align: left
+      margin-top: 7px
+      .optional
+        opacity: .85
+        font-size: .9rem
+        font-style: italic
+    .title
+      border-bottom: 1px solid rgba(255, 255, 255, .3)
+      font-size: 1.5rem
+    +medium-devices
+      max-width: 60%

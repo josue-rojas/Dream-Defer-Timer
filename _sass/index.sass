@@ -1,0 +1,74 @@
+
+.main
+  min-height: 100vh
+  width: 100vw
+  padding-top: 10px
+  display: table
+
+.header
+  width: 100vw
+  display: table-row
+  text-align: center
+  .title, .sub-title
+    display: table
+    margin: auto
+  .title
+    margin-top: 20px
+  .sub-title
+    letter-spacing: .06rem
+    font-weight: 300
+
+.title
+  font-weight: 700
+  letter-spacing: .04rem
+  font-size: 1.75rem
+
+.next
+  position: relative
+  display: flex
+  justify-content: center
+  align-items: center
+  *:not(.loading)
+    transition: opacity 400ms
+    opacity: 0
+    z-index: -3
+  width: 100vw
+  height: 100%
+  .next-timer
+    margin: auto
+    margin-bottom: 15px
+  .title
+    display: table
+    margin: auto
+    margin-bottom: 10px
+  .time
+    font-size: 10vw
+    text-align: center
+    span
+      margin: auto
+      display: table
+    +large-devices
+      font-size: 5rem
+      span
+        display: inline-block
+    +large-devices
+      font-size: 4.5vw
+  // .other-links
+  //   margin-top: 10px
+  //   display: table
+  //   margin: auto
+  //   .link
+  //     display: inline-block
+  //     min-width: 80px
+  //     text-align: center
+  //     margin: auto 5px
+  //     padding: 10px
+  //     border: 1px solid
+  //     border-radius: 5px
+  //     &:hover
+  //       cursor: pointer
+.next.loaded
+  display: inherit
+  *:not(.loading)
+    opacity: 1
+    z-index: 3

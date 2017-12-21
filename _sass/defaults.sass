@@ -1,0 +1,159 @@
+// defaults that were used a lot from bootstrap
+// basically the only thing that was important from bootstrapcdn
+// Photo by Fonsi Fernández on Unsplash
+$doomsday: Arial, Helvetica, "Nimbus Sans L", sans-serif
+$loading-color: #05fbff
+$hover-color: $loading-color
+
+body
+  margin: 0
+  font-size: 1rem
+  font-weight: 400
+  line-height: 1.5
+  font-family: $doomsday
+  letter-spacing: .06rem
+  color: white
+  a
+    color: white
+    transition: 300ms
+
+html
+  box-sizing: border-box
+  font-family: sans-serif
+  line-height: 1.15
+  -webkit-text-size-adjust: 100%
+  -ms-text-size-adjust: 100%
+  -ms-overflow-style: scrollbar
+  -webkit-tap-highlight-color: transparent
+a, a:hover
+  text-decoration: none
+a:hover
+  color: $hover-color
+*,
+*::before,
+*::after
+  box-sizing: inherit
+
+.background
+  position: fixed
+  width: 100vw
+  height: 100vh
+  z-index: -2
+  .image
+    position: absolute
+    width: 100vw
+    height: 100vh
+    background-image: url('/resources/index_back.jpg')
+    background-position: center
+    background-repeat: no-repeat
+    background-size: cover
+    z-index: -2
+  .dark-layer
+    position: absolute
+    background-color: rgba(33,31,33, 0.82)
+    height: 100vh
+    width: 100vw
+    background-position: center
+    flex-direction: column
+    background-size: cover
+    background-repeat: no-repeat
+    position: absolute
+    z-index: -1
+  .image.blur
+    filter: blur(10px)
+
+.loading
+  position: absolute
+  width: 100px
+  height: 100px
+  border-radius: 100%
+  border: 12px solid rgba(255,255,255,.1)
+  border-top: 12px solid $loading-color
+  border-bottom: 12px solid $loading-color
+  animation: isLoading 1s linear infinite
+  transition: opacity 400ms
+  // centering for those nitpicky devices that dont like flex boxes (justifycontent etc)
+  left: calc(50% - 50px)
+  top: calc(50% - 50px)
+.loaded
+  .loading
+    opacity: 0
+    z-index: -3
++keyframes(isLoading)
+  0%
+    transform: rotate(0deg)
+  100%
+    transform: rotate(360deg)
+.main
+  padding-top: 10px
+  min-height: 100vh
+  display: table
+  width: 100vw
+  .box-wrapper, .boxy-wrapper
+    min-width: 100vw
+    height: 100%
+    display: flex
+    justify-content: center
+    align-items: center
+
+.other-links
+  text-align: center
+  display: table-row
+  &.nopadding
+    display: block
+  margin: auto
+  .link
+    display: inline-block
+    min-width: 80px
+    text-align: center
+    margin: auto 5px
+    padding: 10px
+    border-bottom: 3px solid rgba(0,0,0,0)
+    &:hover, &.active
+      color: $hover-color
+      border-bottom: 3px solid $hover-color
+      cursor: pointer
+  &:hover
+    .active:not(:hover)
+      color: white
+      border-bottom: 3px solid rgba(0,0,0,0)
+//
+// .hamburger-menu
+//   margin: auto 10px auto auto
+//   height: 32px
+//   width: 32px
+//   cursor: pointer
+//   position: relative
+//   padding-top: 10px
+//   &.nopadding
+//     padding-top: 0
+//   .line
+//     position: absolute
+//     width: 100%
+//     height: 5px
+//     background-color: white
+//     border-radius: 10px
+//     transition: 300ms
+//   .bottom
+//     margin-top: 22px
+//   .mid
+//     margin-top: 13px
+//   .top
+//     margin-top: 4px
+//   &.active
+//     .top, .bottom
+//       margin-top: 50%
+//     .top
+//       transform: rotate(-45deg)
+//     .bottom
+//       transform: rotate(45deg)
+//     .mid
+//       opacity: 0
+//
+// .other-links
+//   min-height: 0
+// +medium-devices
+//   .other-links
+//     min-height: 300px
+//   .hamburger-menu
+//     display: none

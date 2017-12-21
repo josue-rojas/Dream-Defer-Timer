@@ -1,0 +1,17 @@
+---
+layout: compress
+---
+<!DOCTYPE html>
+	<html>
+		<head>
+			{% include resources.html %}
+			<title>{{ page.title }}</title>
+		</head>
+		<body>
+			<div class='background'>
+			  <div class='image {%if page.permalink != '/' %}blur{% endif %}'></div>
+			  <div class='dark-layer'></div>
+			</div>
+			{{ content }}
+		</body>
+	</html>

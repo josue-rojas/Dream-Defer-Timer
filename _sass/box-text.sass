@@ -1,0 +1,19 @@
+.box-wrapper
+  width: 100vw
+  // TODO change height to fill remaining space if any
+  // min-height: 94vh
+  display: flex
+  justify-content: center
+  align-items: center
+  .box
+    min-width: 100px
+    min-height: 100px
+    padding: 25px
+    background-color: rgba(0,0,0,.4)
+    border-radius: 5px
+    max-width: 95%
+    text-align: center
+    .title
+      font-size: 1.5rem
+    +medium-devices
+      max-width: 60%

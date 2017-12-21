@@ -1,0 +1,51 @@
+
+// masking to change colors when hover
+// https://codepen.io/noahblon/post/coloring-svgs-in-css-background-images
+.insta
+  background-color: white
+  -webkit-mask: url('/resources/Instagram_icon.svg') no-repeat 50% 50%
+  mask: url('/resources/Instagram_icon.svg') no-repeat 50% 50%
+  -webkit-mask-size: cover
+  mask-size: cover
+  width: 32px
+  height: 32px
+  margin: 5px auto 0
+  &:hover
+    background-color: $hover-color
+
+.boxy-wrapper
+  *:not(.loading)
+    opacity: 0
+    transition: 400ms
+  .boxy
+    min-width: 85vw
+    max-width: 95vw
+    min-height: 100px
+    display: table
+    border-radius: 5px
+    .list-row
+      display: flex
+      flex-wrap: wrap
+      white-space: nowrap
+      &:first-child
+        justify-content: center
+    .list-item
+      min-width: 50%
+      padding: 15px
+      text-align: center
+      border: 1px solid
+      display: flex
+      flex-direction: column
+      align-items: center
+      &:hover
+        cursor: pointer
+        border: 1px solid $hover-color
+
+
+    +medium-devices
+      min-width: 60vw
+      .list-item
+        min-width: 25%
+.boxy-wrapper.loaded
+  *:not(.loading)
+    opacity: 1

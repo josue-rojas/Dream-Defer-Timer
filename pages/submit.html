@@ -1,0 +1,30 @@
+---
+layout: default
+title: A Dream-Deferred
+permalink: /submit
+resource: submit
+---
+<!-- safari doesnt support a lot of inputs like date and color that is why there is so many scripts (hope its not a big deal) -->
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="/resources/js/jscolor.min.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+<div class='main'>
+  {% include navsortof.html active='submit'%}  
+  <div class='form-box'>
+    <div class='form-wrapper'>
+      <div class='title'>Submit A New Timer</div>
+      <div class='form'>
+        <div class='label'>Date End</div>
+        <input type="date" name='dateend' class='date-input' placeholder='Date End' value='12/13/2017'/>
+        <div class='label'>Name</div>
+        <input type="text" name='fullname'class='full-name'placeholder='Name'/>
+        <div class='label'>Instagram <span class='optional'>- optional</span></div>
+        <input type="text" class='instagram' name='insta' placeholder='Username'/>
+        <div class='label'>Favorite Color</div>
+        <input class="jscolor color-chooser" name='hexcolor' value="FF5454">
+        <div class='button' onclick='submitForm()'>Submit</div>
+      </div>
+    </div>
+  </div>
+</div>
