@@ -25,13 +25,17 @@ deleteTimer = []
 # json out with ids being keys for quick access to information
 orderOutDICT = dict([])
 
+# instagram check if multiple
+instagram = []
+
 # first filter out the expire ones
 # if not expire then add to the orderOutDICT
 # else remove from json and put in list to be deleted
 i = 0
 pop = 0
 for timer in allTimers:
-    if time.time() < timer['dateend']:
+    if time.time() < timer['dateend'] and not (timer['insta'] in instagram):
+        instagram += [timer['insta']]
         orderOutDICT.setdefault(timer['id'], timer)
     else:
         deleteTimer += [timer['id']]
