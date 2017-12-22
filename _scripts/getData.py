@@ -35,7 +35,8 @@ i = 0
 pop = 0
 for timer in allTimers:
     if time.time() < timer['dateend'] and not (timer['insta'] in instagram):
-        instagram += [timer['insta']]
+        if timer['insta'] != '':
+            instagram += [timer['insta']]
         orderOutDICT.setdefault(timer['id'], timer)
     else:
         deleteTimer += [timer['id']]
