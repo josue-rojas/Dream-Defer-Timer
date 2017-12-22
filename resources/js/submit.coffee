@@ -13,7 +13,6 @@ document.addEventListener "DOMContentLoaded", ->
     thisDate = new Date()
     $dateInput.attr('value', (thisDate.getMonth()+1) + '/' + thisDate.getDate() + '/' + thisDate.getFullYear() )
 
-
   # checks date if valid if so return unix epoch
   checkDate = (date) ->
     valid = new Date(date)
@@ -32,6 +31,18 @@ document.addEventListener "DOMContentLoaded", ->
       $('.full-name').addClass('invalid')
       return false
 
+  shakeForm = ()->
+    $('.form-wrapper').addClass('shake')
+    removeShake = ()->
+      $('.form-wrapper').removeClass('shake')
+    setTimeout(removeShake, 200)
+
+  addLoading = ()->
+    $('.form-box').removeClass('loaded')
+    setDisplayNone = ()->
+      $('.form-wrapper').css('display', 'none')
+    setTimeout(setDisplayNone, 400)
+
   window.submitForm = ->
     $('.invalid').removeClass('invalid')
     date = checkDate($('.date-input').val())
@@ -41,6 +52,7 @@ document.addEventListener "DOMContentLoaded", ->
 
     if !date or !name
       # TODO add messeage if date is invalid
+      shakeForm()
       return
 
     newPost = {
@@ -49,6 +61,10 @@ document.addEventListener "DOMContentLoaded", ->
       'insta': insta,
       'hexcolor': hexcolor
     }
+
+    # this should stop multiple query
+    # TODO add message saying its waiting for server or something
+    addLoading()
 
     $.ajax({
       type: 'POST',
