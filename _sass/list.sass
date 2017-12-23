@@ -21,16 +21,12 @@
     min-width: 85vw
     max-width: 95vw
     min-height: 100px
-    display: table
-    border-radius: 5px
-    .list-row
-      display: flex
-      flex-wrap: wrap
-      white-space: nowrap
-      &:first-child
-        justify-content: center
+    display: block
     .list-item
+      float: left
+      height: 165px
       min-width: 50%
+      max-width: 50%
       padding: 15px
       text-align: center
       border: 1px solid
@@ -40,12 +36,24 @@
       &:hover
         cursor: pointer
         border: 1px solid $hover-color
-
-
+    // http://lea.verou.me/2011/01/styling-children-based-on-their-number-with-css3/
+    .list-item:nth-child(1):nth-last-child(1)
+      float: none
+      margin: auto
     +medium-devices
       min-width: 60vw
       .list-item
+        max-width: 25%
         min-width: 25%
+      .list-item:nth-child(1):nth-last-child(2),
+      .list-item:nth-child(2):nth-last-child(1)
+        &.list-item:nth-child(1)
+          margin-left: 25%
+      .list-item:nth-child(1):nth-last-child(3),
+      .list-item:nth-child(2):nth-last-child(2),
+      .list-item:nth-child(3):nth-last-child(1)
+        &.list-item:nth-child(1)
+          margin-left: 12.5%
 .boxy-wrapper.loaded
   *:not(.loading)
     opacity: 1

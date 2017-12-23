@@ -39,20 +39,21 @@ newListItem = (id, insta, hexcolor) ->
   <div class='seconds'></div>" +
   instagram +  "</div>"
 
-# this function creates a list-row with the proper closing
-newListRow = (listItems) ->
-  curr = 0
-  html = ''
-  for item in listItems
-    if curr % 4 == 0
-      html+= "<div class='list-row'>"
-    html+=item
-    if curr > 0 and curr % 3 == 0
-      html+= "</div>"
-    curr++
-  if listItems.length % 4 != 0
-    html+= "</div>"
-  return html
+# not used cause of a bug in ios 10 where overflow in mobile view
+# # this function creates a list-row with the proper closing
+# newListRow = (listItems) ->
+#   curr = 0
+#   html = ''
+#   for item in listItems
+#     if curr % 4 == 0
+#       html+= "<div class='list-row'>"
+#     html+=item
+#     if curr > 0 and curr % 3 == 0
+#       html+= "</div>"
+#     curr++
+#   if listItems.length % 4 != 0
+#     html+= "</div>"
+#   return html
 
 
 window.timerPage = (id) ->
@@ -108,6 +109,6 @@ document.addEventListener "DOMContentLoaded", ->
       current++
 
     # add all list-items in a row then add to boxu
-    $('.boxy').html(newListRow(listItems))
+    $('.boxy').html(listItems.join(''))
 
   )
